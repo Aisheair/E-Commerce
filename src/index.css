@@ -5,11 +5,27 @@
   --foreground: #ffffff;
 }
 
-@layer base {
-  body {
-    @apply  bg-[var(--background)] text-[var(--foreground)] font-sans;
-  }
+@theme inline{
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 }
+*::selection {
+  background: #15d5ae;
+  color: black;
+}
+*::-moz-selection {
+  background: #15d5ae;
+  color: black;
+}
+*::-webkit-selection {
+  background: #15d5ae;
+  color: black;
+}
+body{
+    @apply bg-[var(--color-background)] text-[var(--color-foreground)];
+    
+}
+
 
 button{
     @apply cursor-pointer;
