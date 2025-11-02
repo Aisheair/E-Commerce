@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
+:root{
+  --background: #121214;
+  --foreground: #ffffff;
+}
+
 @layer base {
   body {
-    @apply bg-[#1a1a1d] text-white;
+    @apply  bg-[var(--background)] text-[var(--foreground)] font-sans;
   }
 }
 
