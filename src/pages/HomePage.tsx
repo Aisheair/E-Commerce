@@ -1,4 +1,4 @@
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { products } from "../data/product";
 
@@ -40,7 +40,7 @@ export default function HomePage() {
       </nav>
 
       <div>
-        <div className="text-center pt-16 pb-20">
+        <div className="text-center pt-25 pb-20">
           <p className=" text-3xl font-mono text-white/90">
             Welcome to <span className="text-[#15d5ae]">Nexio</span>
           </p>
@@ -68,11 +68,23 @@ export default function HomePage() {
                   {product.price}
                 </p>
               </div>
+
+              <div className="flex">
+                {
+                  [...Array(5)].map((_,i)=>(
+                    <Star key={i} size={14} className={`${i < product.rating ? "text-yellow-400":"text-gray-400"}`}/>
+
+                  ))
+                }
+              </div>
+
+             
+
               <button
                 className="w-full py-2 text-[#15d5ae] font-medium 
            border-b border-[#00ffcc]/20 hover:border-[#15d5ae]/60 
            hover:text-white transition-all duration-200"
-                onClick={() => console.log("succes")}
+                onClick={() => addToCart(product.id)}
               >
                 Add to Cart
               </button>
